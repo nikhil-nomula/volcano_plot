@@ -1,0 +1,67 @@
+.title {
+  text-align: center;
+}
+
+section {
+  padding-top: 70px;  
+}
+#data-info {
+	padding-top: 70px;  
+  padding-bottom: -40px; 
+}
+
+em {
+  font-style: italic;
+}
+
+table {
+  font-size: 0.9em;
+}
+
+#header h1 {
+  border-bottom: 1px solid darkgray;
+  margin-top: 1em;
+}
+
+#references {
+  margin-top: 2em;
+}
+
+#table-footnote {
+  color: slategray;
+  display: none;
+  font-size: 0.75em;
+}
+
+#table-footnote code {
+  color: slategray;
+}
+
+#table-footnote ul{
+  list-style: none;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.subtitle {
+  color: darkgray;
+  font-size: 0.9em;
+}
+
+rect.selection {
+  fill: #4889f2;
+  fill-opacity: 0.3;
+  stroke: #4889f2;
+}
+
+#tooltip {
+  background-color: #909090;
+  border-radius: 3px;
+  color: #101010;
+  font-size: 80%;
+  padding: 2px 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}

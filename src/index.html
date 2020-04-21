@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+  <head>
+      <title>Volcano Plot in D3</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand" href="#data-info">Volcano Plot</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#data-info">Data</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#volcano-plot-info">Volcano Plot</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#visualization">Visualization</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#references">References</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section id="data-info">
+          <div class="container">
+            <h2 class="title">
+                Data Visualization
+            </h2>
+            <br/>
+            <p class="lead">
+              Treatment-Emergent Adverse Events, MedDRA Preferred Term Within System Organ Class, Indication in Safety Population
+Placebo-Controlled Indication Integrated Analysis Set — Blinded Treatment Dosing Period Weeks 0 - 16 (Studies ABCD, EFGH, IJKL)
+            </p>
+          </div>
+      </section>
+    
+      <section id="volcano-plot-info">
+        <div class="container">
+            <h2 class="title">Volcano Plot</h2>
+            <br/>
+            <p class="lead">
+              This is an interactive volcano plot. The plot allows all TEAEs to appear in a single graph, combining an assessment of strength of evidence for an imbalance between the treatment group and placebo (via p-values) with the magnitude of the estimated effect (via odds ratios). Events falling in the upper right quadrant are those with the strongest evidence of an imbalance and highest magnitude of effect. MedDRA preferred terms with undefined odds ratios (control arm has zero patients with the event) will not appear in the plot.
+            </p>
+        
+            <h4 style="font-style: italic;">Instructions</h4>
+            <p>
+              <ul>
+                <li class="lead" style="font-style: italic;">
+                  Use the first drop-down option to to choose the treatment comparison of interest.
+                </li>
+                <li class="lead" style="font-style: italic;">
+                  Use the second drop-down option to focus on a particular System Organ Class(if desired).
+                </li>
+                <li class="lead" style="font-style: italic;">
+                  To see the name of the MedDRA preferred term, hover over individual points on the plot.
+                </li>
+                <li class="lead" style="font-style: italic;">
+                  Lasso over points (click mouse and drag over desired points) to see the specific data behind the point to aid in review.
+                </li>
+              </ul>
+            </p>
+        </div>
+      </section>
+      
+      <section id="visualization">
+        <div class="container">
+            <h2 id="hdrTtl" class="title"></h2>
+            <br/>
+            <br/>
+            <form>
+              <div class="form-group row">
+                  <label for="treatment-comparison" class="col-3 col-form-label">Treatment Comparison</label>
+                  <div class="col-5">
+                      <select id="treatment-comparison" name="treatment-comparison" class="form-control"></select>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="system-organ-class" class="col-3 col-form-label">System Organ Class</label>
+                  <div class="col-5">
+                      <select id="system-organ-class" name="system-organ-class" class="form-control"></select>
+                  </div>
+              </div>
+            </form>
+      
+            <div class="alerts">
+                <div class="alert alert-danger" role="alert" id="no-occurrence" style="display: none;">
+                    There was no occurrence of an adverse event in these two arms for this system organ class, or
+                    if there was an occurrence, the odds ratio is undefined.
+                </div>
+            </div>
+    
+            <svg id="volcano-plot"></svg>
+    
+            <div id="tooltip" style="display: none;"></div>
+        
+            <table id="selected-data" class="table table-sm table-striped" style="font-size: 0.75em;">
+                <thead id="selected-data-head"></thead>
+                <tbody id="selected-data-body"></tbody>
+            </table>
+        
+            <div id="table-footnote">
+                <ul>
+                    <li><strong>Note:</strong> Percentage is calculated by n/N*100%.</li>
+                    <li><strong>Note:</strong> AE is coded using MedDRA Version MedDRA19.0.</li>
+                    <li><strong>Note:</strong> A treatment-emergent adverse event (TEAE) is defined as an event that first occurred or worsened in severity after baseline and on or prior to the date of the last visit within the treatment period.</li>
+                </ul>
+            </div>
+        </div>
+      </section>
+      
+      <section id="references">
+          <div class="container">
+            <h2 class="title">References</h2>
+            <br/>
+            <p class="lead">
+                CTSpedia.
+                Safety Graphics.
+                Available at: https://www.ctspedia.org/do/view/CTSpedia/StatGraphHome.
+                Accessed: 11 Jun 2019.
+            </p>
+            <p class="lead">
+                Jiang Q, Xia HA, eds.
+                Quantitative evaluation of safety in drug development: design, analysis and reporting.
+                New York (NY): Taylor &amp; Francis; 2015.
+            </p>
+            <p class="lead">
+                Ma H, Ke C, Jiang Q, Snapinn S.
+                Statistical considerations on the evaluation of imbalances of adverse events in randomized clinical trials.
+                <em>Ther Innov Regul Sci.</em>
+                2015;49(6):957-965.
+            </p>
+            <p class="lead">
+                O’Connell M, Knudsen S.
+                Statistical graphics and reporting in drug development.
+                Paper presented at: PhUSE 2006; October 9-11, 2006; Dublin, Ireland.
+                Paper TS04.
+            </p>
+          </div>
+      </section>
+  
+
+    <div id="modern-browser-required" style="display: none;z-index: 9999; background-color: darkgrey; position: absolute; top: 0; left: 0; width: 100%; height: 100%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 16px;">
+      <div class="inner" style="background-color: white; width: 20em; padding: 1em; margin-top: 5em; margin-left: auto; margin-right: auto;">
+          <p>This visualization requires use of a modern browser. Please use one of the following.</p>
+          <ul>
+              <li><a href="https://www.google.com/chrome/">Google Chrome</a></li>
+              <li><a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft IE Edge</a></li>
+              <li><a href="https://www.mozilla.org/en-US/firefox/">Mozilla Firefox</a></li>
+          </ul>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      var ua = window.navigator.userAgent;
+      var msie = (ua.indexOf("MSIE") >= 0);
+      var trident = (ua.indexOf("Trident") >= 0);
+  
+      if (msie || trident) {
+          document.getElementById("modern-browser-required").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

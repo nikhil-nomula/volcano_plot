@@ -1,0 +1,53 @@
+{
+  "name": "volcano_plot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This project visualizes Treatment-Emergent Adverse Events(TEAE) in a single graph.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "npx webpack --mode development",
+    "build": "npx webpack --mode production",
+    "start-dev": "npx webpack-dev-server --mode development"
+  },
+  "keywords": [
+    "node",
+    "d3",
+    "d3v5",
+    "webpack",
+    "bootstrap",
+    "jquery",
+    "javascript",
+    "volcano plot"
+  ],
+  "author": {
+    "name": "Jarrett Meyer, Nikhil Das Nomula",
+    "email": "meyer_jarrett@lilly.com, nomula_nikhil_das@network.lilly.com"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "ajv": "^6.7.0",
+    "ajv-keywords": "^3.3.0",
+    "babel-loader": "^8.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "bootstrap": "4.4.1",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "d3": "^5.15.0",
+    "file-system": "^2.2.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.5",
+    "style-loader": "^1.1.3",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-icons-installer": "^2.0.0"
+  },
+  "dependencies": {}
+}
